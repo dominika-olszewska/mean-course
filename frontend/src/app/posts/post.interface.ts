@@ -1,15 +1,21 @@
 export interface PostsResponse {
   message: string;
-  posts?: Post[];
+  posts?: PostFromBE[];
 }
 
 export interface PostResponse {
   message: string;
-  id?: string;
+  _id?: string;
 }
 
 export interface Post {
-  id?: string;
+  id: string;
+  title: string;
+  content: string;
+}
+
+export interface PostFromBE {
+  _id: string;
   title: string;
   content: string;
 }

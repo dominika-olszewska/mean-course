@@ -1,6 +1,7 @@
 <p>Posts:</p>
-<pre>list: {{posts$ | async | json}}</pre>
 <div *ngFor="let post of posts$ | async">
   <p>title: {{post.title}}</p>
   <p>content: {{post.content}}</p>
+  <p>id: {{post.id}}</p>
+  <button (click) = "onDelete(post.id)">Delete</button>
 </div>

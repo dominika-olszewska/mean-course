@@ -1,7 +1,6 @@
 import { PostService } from './posts/posts.sevice';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Post, PostsResponse } from './posts/post.interface';
+import { Post } from './posts/post.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,6 @@ export class AppComponent implements OnInit {
   public title: string = 'mean-course';
 
   constructor(private postService: PostService) {
-
   }
 
   public ngOnInit(): void {

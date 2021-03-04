@@ -43,13 +43,20 @@ app.post('/api/posts', (req, res, next) => {
 
 app.get('/api/posts', (req, res, next) => {
     Post.find()
-    .then(documents => {
-        res.status(200).json({
-            message: 'Posts fetched successfully',
-            posts: documents,
+        .then(documents => {
+            res.status(200).json({
+                message: 'Posts fetched successfully',
+                posts: documents,
+            });
         });
-    });
-
 });
+
+app.delete('/api/posts/:id', (req, res, next) => {
+    Post.deleteOne({ _id: req.params.id }).then(() => {
+        res.status(200).json({
+            message: 'Post deleted',
+        });
+    })
+})
 
 module.exports = app;

@@ -21,7 +21,7 @@ export class PostService {
           return {
             title: post.title,
             content: post.content,
-            // id: post._id
+            id: post._id
           }
         })
       })
@@ -33,13 +33,18 @@ export class PostService {
   }
 
   public addPost(post: Post): void {
-    this.postApiService.addPost(post).subscribe( responseData => {
-      const id = responseData.id;
-      post.id = id;
+    this.postApiService.addPost(post).subscribe(responseData => {
+      post.id = responseData._id;
       this.posts.push(post);
       this.postsUpdated.next([...this.posts])
     })
   }
 
+  public deletePost(postId: string): void {
+    this.postApiService.deletePost(postId).subscribe(() => {
+      this.posts = this.posts.filter(post => post.id !== postId);
+      this.postsUpdated.next([...this.posts]);
+    });
+  }
 
 }

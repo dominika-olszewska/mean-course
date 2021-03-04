@@ -18,4 +18,8 @@ export class PostListComponent implements OnInit {
     this.posts$ = this.postService.postsUpdated$;
   }
 
+  public onDelete(postId: string): void {
+    this.postService.deletePost(postId);
+  }
+
 }

@@ -18,6 +18,7 @@ export class PostComponent {
 
   public submit(): void {
     this.postAdded.emit(this.form.value);
+    this.form.reset();
   }
 
 }
