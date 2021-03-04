@@ -35,30 +35,21 @@ app.post('/api/posts', (req, res, next) => {
         title: req.body.title,
         content: req.body.content
     });
-    console.log(post);
     post.save();
     res.status(201).json({
         message: 'Post added successfuly',
     });
 });
 
-app.use('/api/posts', (req, res, next) => {
-    const posts = [
-        {
-            id: '123',
-            title: 'First server-side post',
-            content: 'This is coming from the server',
-        },
-        {
-            id: '234',
-            title: 'Second server-side post',
-            content: 'This too',
-        },
-    ];
-    res.status(200).json({
-        message: 'Posts fetched successfully',
-        posts: posts,
+app.get('/api/posts', (req, res, next) => {
+    Post.find()
+    .then(documents => {
+        res.status(200).json({
+            message: 'Posts fetched successfully',
+            posts: documents,
+        });
     });
+
 });
 
 module.exports = app;
