@@ -1,0 +1,23 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+  color: $font-color;
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, ol, ul, p {
+  margin: 0;
+  padding: 0;
+}
+

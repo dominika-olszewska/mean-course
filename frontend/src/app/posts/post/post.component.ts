@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../post.interface';
 
 @Component({
@@ -8,17 +7,28 @@ import { Post } from '../post.interface';
   styleUrls: ['./post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PostComponent {
-  @Output() public postAdded: EventEmitter<Post> = new EventEmitter<Post>();
+export class PostComponent implements OnInit {
+  @Input() public post: Post;
+  @Output() public deleteClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public editClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  public form: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    content: new FormControl('')
-  });
+  public isInfoDisplayed: boolean = false;
 
-  public submit(): void {
-    this.postAdded.emit(this.form.value);
-    this.form.reset();
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  public onDelete(postId: string): void {
+    this.deleteClicked.emit(postId);
+  }
+
+  public onEdit(postId: string): void {
+    this.editClicked.emit(postId);
+  }
+
+  public toggle(): void {
+    this.isInfoDisplayed = !this.isInfoDisplayed;
   }
 
 }

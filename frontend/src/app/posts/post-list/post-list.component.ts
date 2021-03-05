@@ -1,4 +1,4 @@
-import { PostService } from './../posts.sevice';
+import { PostService } from '../services/posts.sevice';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../post.interface';
@@ -15,11 +15,16 @@ export class PostListComponent implements OnInit {
   constructor(public postService: PostService) { }
 
   ngOnInit(): void {
+    this.postService.getPosts();
     this.posts$ = this.postService.postsUpdated$;
   }
 
   public onDelete(postId: string): void {
     this.postService.deletePost(postId);
+  }
+
+  public onEdit(postId: string): void {
+    console.log(postId);
   }
 
 }

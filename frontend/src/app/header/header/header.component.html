@@ -1,0 +1,14 @@
+<div>
+  <h1>Mean course</h1>
+  <ng-container *ngIf="headerService.currentView$ | async as currentViewName">
+    <div
+      *ngIf="currentViewName !== ViewName.POST_LIST; else addPost"
+      [routerLink]="['']"
+    >
+      Back to the list
+    </div>
+  </ng-container>
+  <ng-template #addPost>
+    <div [routerLink]="['create']">Add post</div>
+  </ng-template>
+</div>

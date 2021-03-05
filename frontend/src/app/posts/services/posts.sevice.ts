@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from 'rxjs/operators';
-import { Post } from "./post.interface";
+import { Post } from "../post.interface";
 import { PostsApiService } from "./posts-api.service";
 
 @Injectable()

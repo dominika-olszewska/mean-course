@@ -1,7 +1,15 @@
-<form [formGroup] = "form" (ngSubmit)="submit()">
-  <label>Title:</label>
-  <input formControlName= "title">
-  <label>Content:</label>
-  <input formControlName= "content">
-  <button type="submit">Add</button>
-</form>
+<div class="title-container">
+  <div class="title">
+    <span>{{ post.title }}</span>
+  </div>
+  <div class="arrow-wrapper" (click)="toggle()">
+    <div class="arrow" [ngClass]="{ rotated: isInfoDisplayed }">></div>
+  </div>
+</div>
+<div class="info" [ngClass]="{ displayed: isInfoDisplayed }">
+  <p>{{ post.content }}</p>
+  <div class="buttons">
+    <button edit (click)="onEdit(post.id)">Edit</button>
+    <button delete (click)="onDelete(post.id)">Delete</button>
+  </div>
+</div>

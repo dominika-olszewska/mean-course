@@ -1,0 +1,66 @@
+// COLORS
+$background-color:  #f5f5f5;
+$surface-color:  white;;
+
+$font-color:  #606060;
+$header-font-color:  #606060;
+$border-color: #c2c2c2;
+$primary: #466975;
+$primary-light: #7397a4;
+$primary-dark: #1a3e49;
+$secondary: #467569;
+$secondary-light: #73a497;
+$secondary-dark: #1a493e;
+
+$red: #c75063;
+$orange: #e0944d;
+
+$lightgrey: #f4f4f4;
+$white: #ffffff;
+$grey-800: #606060;
+$grey-700: #818181;
+$grey-600: #979797;
+$grey-500: #c2c2c2;
+$grey-400: #dedede;
+$grey-300: #f0f0f0;
+$grey-200: #f5f5f5;
+
+//TYPOGRAPHY
+$main-font: 'Open Sans', sans-serif;
+
+//MIXIN RULES
+@mixin flexible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexibleCol {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin breakpoint($point) {
+  @if $point == extra-large {
+    @media (max-width: 1600px) {
+      @content;
+    }
+  }
+  @if $point == large {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == extra-small {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+}
