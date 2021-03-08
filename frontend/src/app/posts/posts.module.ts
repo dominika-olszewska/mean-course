@@ -16,7 +16,6 @@ import { PostComponent } from './post/post.component';
     CommonModule,
     ReactiveFormsModule,
   ],
-  // exports: [PostListComponent],
   providers: [PostService, PostsApiService]
 })
 export class PostsModule { }

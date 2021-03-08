@@ -1,11 +1,30 @@
 @import "variables";
 
-div {
+.wrapper {
   min-height: 60px;
   width: 100%;
   background-color: $primary-light;
   color: $white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr minmax(120px, auto);
+  grid-template-areas: "main navigation";
+  box-shadow: 2px 4px 12px rgba(128, 128, 128, 0.507);
+
+  h1 {
+    grid-area: main;
+     display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .item {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
