@@ -1,4 +1,4 @@
-import { PostResponse } from './../post.interface';
+import { PostApiResponse } from './../post.interface';
 import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
