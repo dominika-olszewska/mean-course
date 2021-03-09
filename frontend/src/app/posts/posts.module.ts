@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostsApiService } from './services/posts-api.service';
 import { NgModule } from '@angular/core';
@@ -15,8 +16,8 @@ import { PostComponent } from './post/post.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
-  // exports: [PostListComponent],
   providers: [PostService, PostsApiService]
 })
 export class PostsModule { }

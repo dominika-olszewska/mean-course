@@ -17,6 +17,14 @@ export class PostsApiService {
     return this.http.post<PostResponse>('http://localhost:8000/api/posts', post);
   }
 
+  public getPost(id: string): Observable<PostResponse> {
+    return this.http.get<PostResponse>(`http://localhost:8000/api/posts/${id}`);
+  }
+
+  public updatePost(id: string, post: Post): Observable<PostResponse> {
+    return this.http.put<PostResponse>(`http://localhost:8000/api/posts/${id}`, post);
+  }
+
   public deletePost(id: string): Observable<PostResponse> {
     return this.http.delete<PostResponse>(`http://localhost:8000/api/posts/${id}`);
   }

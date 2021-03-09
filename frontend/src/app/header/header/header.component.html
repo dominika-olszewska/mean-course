@@ -1,7 +1,8 @@
-<div>
+<div class="wrapper">
   <h1>Mean course</h1>
   <ng-container *ngIf="headerService.currentView$ | async as currentViewName">
     <div
+    class="item"
       *ngIf="currentViewName !== ViewName.POST_LIST; else addPost"
       [routerLink]="['']"
     >
@@ -9,6 +10,6 @@
     </div>
   </ng-container>
   <ng-template #addPost>
-    <div [routerLink]="['create']">Add post</div>
+    <div class="item" [routerLink]="['create']">Add post</div>
   </ng-template>
 </div>

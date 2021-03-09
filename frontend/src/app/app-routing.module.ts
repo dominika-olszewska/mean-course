@@ -21,7 +21,15 @@ const routes: Routes = [
       viewName: ViewName.POST_CREATE,
     },
     canActivate: [CanActivateHeaderGuard]
-   }
+  },
+  {
+    path: 'edit/:postId',
+    component: PostCreateComponent,
+    data: {
+      viewName: ViewName.POST_EDIT,
+    },
+    canActivate: [CanActivateHeaderGuard]
+  }
 ];
 
 @NgModule({

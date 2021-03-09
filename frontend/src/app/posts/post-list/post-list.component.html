@@ -1,11 +1,7 @@
 <div class="wrapper" *ngFor="let post of posts$ | async as posts">
-  <ng-container>
-
-  </ng-container>
-
   <app-post
-  [post] = post
-  (deleteClicked) = "onDelete($event)"
-  (editClicked) = "onEdit($event)"
+    [post]="post"
+    (deleteClicked)="onDelete($event)"
+    (editClicked)="onEdit($event)"
   ></app-post>
 </div>
