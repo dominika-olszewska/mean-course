@@ -1,9 +1,9 @@
-export interface PostsResponse {
+export interface PostsApiResponse {
   message: string;
-  posts?: PostFromBE[];
+  posts?: PostResponse[];
 }
 
-export interface PostResponse {
+export interface PostApiResponse {
   message: string;
   _id?: string;
 }
@@ -14,7 +14,7 @@ export interface Post {
   content: string;
 }
 
-export interface PostFromBE {
+export interface PostResponse {
   _id: string;
   title: string;
   content: string;
