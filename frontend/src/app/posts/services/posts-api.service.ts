@@ -1,3 +1,4 @@
+import { PostFromBE } from './../post.interface';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
@@ -17,8 +18,8 @@ export class PostsApiService {
     return this.http.post<PostResponse>('http://localhost:8000/api/posts', post);
   }
 
-  public getPost(id: string): Observable<PostResponse> {
-    return this.http.get<PostResponse>(`http://localhost:8000/api/posts/${id}`);
+  public getPost(id: string): Observable<PostFromBE> {
+    return this.http.get<PostFromBE>(`http://localhost:8000/api/posts/${id}`);
   }
 
   public updatePost(id: string, post: Post): Observable<PostResponse> {

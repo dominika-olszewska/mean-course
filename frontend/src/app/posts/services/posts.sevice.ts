@@ -1,3 +1,4 @@
+import { PostFromBE } from './../post.interface';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
@@ -33,7 +34,7 @@ export class PostService {
 
   }
 
-  public getPost(id: string): Observable<PostResponse> {
+  public getPost(id: string): Observable<PostFromBE> {
     return this.postApiService.getPost(id);
   }
 
