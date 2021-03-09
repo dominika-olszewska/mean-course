@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ import { HeaderModule } from './header/header.module';
     CommonModule,
     PostsModule,
     HeaderModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

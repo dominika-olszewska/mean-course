@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from 'rxjs/operators';
-import { Post } from "../post.interface";
+import { Post, PostResponse } from "../post.interface";
 import { PostsApiService } from "./posts-api.service";
 
 @Injectable()
@@ -10,7 +11,7 @@ export class PostService {
   private postsUpdated = new BehaviorSubject<Post[]>([]);
   public postsUpdated$: Observable<Post[]> = this.postsUpdated.asObservable();
 
-  constructor(private postApiService: PostsApiService) {
+  constructor(private postApiService: PostsApiService, private router: Router) {
 
   }
 
@@ -30,6 +31,24 @@ export class PostService {
       this.postsUpdated.next([...this.posts])
     })
 
+  }
+
+  public getPost(id: string): Observable<PostResponse> {
+    return this.postApiService.getPost(id);
+  }
+
+  public updatePost(postId: string, postData: Post): void {
+    const post: Post = { id: postId, title: postData.title, content: postData.content };
+
+    this.postApiService.updatePost(postId, post).subscribe(response => {
+      const updatedPosts = [...this.posts];
+      const oldPostIndex = updatedPosts.findIndex(p => p.id === post.id);
+      updatedPosts[oldPostIndex] = post;
+      this.posts = updatedPosts;
+      this.postsUpdated.next([...this.posts]);
+      this.router.navigate(["/"]);
+
+    });
   }
 
   public addPost(post: Post): void {

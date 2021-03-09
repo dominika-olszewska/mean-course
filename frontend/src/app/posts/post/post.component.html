@@ -9,7 +9,7 @@
 <div class="info" [ngClass]="{ displayed: isInfoDisplayed }">
   <p>{{ post.content }}</p>
   <div class="buttons">
-    <button edit (click)="onEdit(post.id)">Edit</button>
+    <button [routerLink] = "['edit', post.id]" edit>Edit</button>
     <button delete (click)="onDelete(post.id)">Delete</button>
   </div>
 </div>

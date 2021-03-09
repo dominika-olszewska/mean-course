@@ -1,3 +1,9 @@
 <div>
-  <app-post-form (postAdded)="postMessage($event)"></app-post-form>
+  <div *ngIf="isLoading">loading...</div>
+  <app-post-form
+    *ngIf="!isLoading"
+    [post]="post"
+    (postAdded)="postMessage($event)"
+  ></app-post-form>
 </div>
+
