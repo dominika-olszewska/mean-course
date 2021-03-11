@@ -7,7 +7,7 @@
   </div>
 </div>
 <div class="info" [ngClass]="{ displayed: isInfoDisplayed }">
-  <p>{{ post.content }}</p>
+  <p class="content">{{ post.content }}</p>
   <div class="buttons">
     <button [routerLink] = "['edit', post.id]" edit>Edit</button>
     <button delete (click)="onDelete(post.id)">Delete</button>
