@@ -55,7 +55,8 @@ export class PostService {
     this.postApiService.addPost(post).subscribe(responseData => {
       post.id = responseData._id;
       this.posts.push(post);
-      this.postsUpdated.next([...this.posts])
+      this.postsUpdated.next([...this.posts]);
+      this.router.navigate(["/"]);
     })
   }
 

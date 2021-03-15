@@ -1,7 +1,25 @@
-<form [formGroup] = "form" (ngSubmit)="submit()">
-  <label>Title:</label>
-  <input formControlName= "title">
-  <label>Content:</label>
-  <input formControlName= "content">
-  <button primary type="submit">Add</button>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="field">
+    <label>Title:</label>
+    <input formControlName="title" />
+    <app-errors [field]="title"></app-errors>
+  </div>
+  <div class="file-picker">
+    <input hidden type="file" #fileInput />
+    <button edit type="button" (click)="fileInput.click()">Pick image</button>
+  </div>
+  <div class="field">
+    <label>Content:</label>
+    <input formControlName="content" />
+    <app-errors [field]="content"></app-errors>
+  </div>
+  <button
+    primary
+    type="submit"
+    [ngClass]="{
+      disabled: form.invalid || (form.untouched && postMode !== mode.EDIT)
+    }"
+  >
+    Add
+  </button>
 </form>

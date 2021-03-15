@@ -1,3 +1,4 @@
+import { ErrorsModule } from './../errors/errors.module';
 import { RouterModule } from '@angular/router';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostsApiService } from './services/posts-api.service';
@@ -17,6 +18,7 @@ import { PostComponent } from './post/post.component';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    ErrorsModule,
   ],
   providers: [PostService, PostsApiService]
 })

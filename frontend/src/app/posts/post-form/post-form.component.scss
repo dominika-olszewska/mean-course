@@ -2,11 +2,21 @@ form {
   display: flex;
   flex-direction: column;
 
-  input {
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .file-picker {
     margin-bottom: 20px;
   }
 
   button {
     width: 160px;
+
+    &.disabled{
+      pointer-events: none;
+      background-color: lightgray;
+    }
   }
 }
