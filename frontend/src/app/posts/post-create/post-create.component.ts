@@ -1,15 +1,8 @@
-import { PostApiResponse } from './../post.interface';
 import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Mode } from 'src/app/enums/mode';
 import { Post } from '../post.interface';
 import { PostService } from '../services/posts.sevice';
-import { map } from 'rxjs/operators';
-
-export enum Mode {
-  EDIT = 'edit mode',
-  CREATE = 'create mode',
-}
 
 @Component({
   selector: 'app-post-create',

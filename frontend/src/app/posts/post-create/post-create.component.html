@@ -3,6 +3,7 @@
   <app-post-form
     *ngIf="!isLoading"
     [post]="post"
+    [postMode]='mode'
     (postAdded)="postMessage($event)"
   ></app-post-form>
 </div>

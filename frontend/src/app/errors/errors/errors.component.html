@@ -1,0 +1,11 @@
+<ng-container *ngIf="field.invalid && field.errors">
+  <ng-container *ngIf="field.touched">
+    <ng-container *ngFor="let error of field.errors | keyvalue">
+      <div class="error" [ngSwitch]="error.key">
+        <div *ngSwitchCase="clientError.REQUIRED">This field is required</div>
+        <div *ngSwitchCase="clientError.MINLENGTH">Minlenght is: {{error.value?.requiredLength}}</div>
+        <div *ngSwitchDafault>This field does not meet requirements</div>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>

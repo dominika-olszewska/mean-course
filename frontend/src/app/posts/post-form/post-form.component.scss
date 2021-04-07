@@ -2,11 +2,29 @@ form {
   display: flex;
   flex-direction: column;
 
-  input {
+  .field {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
+  }
+  .file-picker {
+    margin-bottom: 20px;
+  }
+
+  .image-preview {
+    width: 100px;
+
+    img {
+      width: 100%;
+    }
   }
 
   button {
     width: 160px;
+
+    &.disabled {
+      pointer-events: none;
+      background-color: lightgray;
+    }
   }
 }

@@ -3,5 +3,9 @@
 .wrapper {
   padding: 20px;
   margin-bottom: 20px;
-  border-bottom: 1px solid gray;
+
+  height: 100%;
+  width: 100%;
+
+  box-shadow: 2px 4px 12px rgba(46, 46, 46, 0.384);
 }

@@ -1,6 +1,22 @@
 @import "variables";
 @import "reset";
 
+@mixin ripple-effect($color) {
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover {
+    background: $color radial-gradient(circle, transparent 1%, $color 1%)
+      center/150000%;
+  }
+
+  &:active {
+    background-color: lighten($color, 10%);
+    block-size: 100%;
+    transition: background 0s;
+  }
+}
+
 body {
   background-color: $background-color;
   height: 100vh;
@@ -11,20 +27,17 @@ body {
   button {
     font-size: 0.9em;
     font-weight: bold;
-    color: $white;
     text-transform: uppercase;
     padding: 16px 8px;
     border-radius: 2px;
     display: inline-block;
     border: none;
     outline: none;
-    transition-property: background-color;
-    transition-duration: 0.9s;
-    transition-timing-function: ease-in;
+    min-width: 80px;
 
     &:hover {
       color: $white;
-      transition: all 0.4s ease 0s;
+      transition: all ease 0.35s;
       cursor: pointer;
     }
 
@@ -33,11 +46,20 @@ body {
     }
 
     &[delete] {
-      background-color: $red;
+      color: $red;
+
+      &:hover {
+        background-color: lighten($red, 30%);
+      }
     }
 
     &[edit] {
-      background-color: $orange;
+      @include ripple-effect(rgb(30, 56, 93));
+      color: rgb(30, 56, 93);
+
+      &:hover {
+        background-color: rgba(30, 56, 93, 0.25);
+      }
     }
   }
 
