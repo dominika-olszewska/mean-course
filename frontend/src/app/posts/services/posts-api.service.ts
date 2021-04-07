@@ -13,7 +13,7 @@ export class PostsApiService {
     return this.http.get<PostsApiResponse>("http://localhost:8000/api/posts");
   }
 
-  public addPost(post: Post): Observable<PostApiResponse> {
+  public addPost(post: FormData): Observable<PostApiResponse> {
     return this.http.post<PostApiResponse>('http://localhost:8000/api/posts', post);
   }
 

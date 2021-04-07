@@ -10,8 +10,6 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostService } from './services/posts.sevice';
 import { PostComponent } from './post/post.component';
 
-
-
 @NgModule({
   declarations: [PostFormComponent, PostListComponent, PostCreateComponent, PostComponent],
   imports: [

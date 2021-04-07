@@ -52,7 +52,12 @@ export class PostService {
   }
 
   public addPost(post: Post): void {
-    this.postApiService.addPost(post).subscribe(responseData => {
+    const postData = new FormData();
+    postData.append('title', post.title);
+    postData.append('content', post.content);
+    postData.append('image', post.image, post.title);
+
+    this.postApiService.addPost(postData).subscribe(responseData => {
       post.id = responseData._id;
       this.posts.push(post);
       this.postsUpdated.next([...this.posts]);

@@ -11,10 +11,18 @@ form {
     margin-bottom: 20px;
   }
 
+  .image-preview {
+    width: 100px;
+
+    img {
+      width: 100%;
+    }
+  }
+
   button {
     width: 160px;
 
-    &.disabled{
+    &.disabled {
       pointer-events: none;
       background-color: lightgray;
     }

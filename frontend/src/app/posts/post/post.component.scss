@@ -22,6 +22,7 @@
   -o-transition: opacity 0.4s ease-in-out;
   -webkit-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
 
   &.displayed {
     opacity: 1;
@@ -30,6 +31,7 @@
     -o-transition: opacity 0.4s ease-in-out;
     -webkit-transition: opacity 0.4s ease-in-out;
     transition: opacity 0.4s ease-in-out;
+    pointer-events: initial;
   }
 }
 
